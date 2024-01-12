@@ -1,0 +1,121 @@
+﻿<Window x:Class="GURU.ViewsAndViewModels.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GURU.ViewsAndViewModels"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:log="clr-namespace:GURU.Common.Log;assembly=GURU.Common"
+        mc:Ignorable="d" DataContext="{StaticResource MainViewModel}"
+        Title="Main View" Height="1000" Width="1300">
+
+    <Window.Resources>
+        <DataTemplate x:Key="RibbonItemTempalte" DataType="{x:Type local:MenuItem}">
+            <telerik:RadRibbonTab Header="{Binding MyHeader}" />
+        </DataTemplate>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+            <StackPanel IsItemsHost="True"/>
+        </ItemsPanelTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <!--<RowDefinition Height="60*"/>-->
+        </Grid.RowDefinitions>
+        <!--<telerik:RadRibbonView ItemsSource="{Binding MenuItems}" ItemTemplate="{StaticResource RibbonItemTempalte}"  >-->
+        <telerik:RadRibbonView Grid.Row="0"  VerticalAlignment="Stretch" ApplicationName="{Binding WindowTitleHeader}"  
+                ApplicationButtonContent="File" IsMinimizable="True"  >
+
+            <telerik:RadRibbonView.Backstage>
+                <telerik:RadRibbonBackstage  >
+                    <telerik:RadRibbonBackstageItem Header="New" Command="{Binding NewFileCommand}" IsSelectable="False"  />
+                    <telerik:RadRibbonBackstageItem Header="Open" Icon="../Images/Open.png" Command="{Binding OpenFileCommand}" IsSelectable="False" />
+                        <!--telerik:KeyTipService.AccessKey="Ctrl+o" telerik:KeyTipService.AccessText="Ctrl+o" />-->
+                    <telerik:RadRibbonBackstageItem Header="Save" Icon="../Images/Save.png" Command="{Binding SaveCommand}" IsSelectable="False" />
+                        <!--telerik:KeyTipService.AccessKey="Ctrl+o" telerik:KeyTipService.AccessText="Ctrl+s"  />-->
+                    <telerik:RadRibbonBackstageItem Header="Save as" Icon="../Images/Save.png" Command="{Binding SaveFileAsCommand}" IsSelectable="False"   />
+                    <telerik:RadRibbonBackstageItem Header="Recent" IsDefault="True">
+                        <local:SplashScreenView /> 
+                    </telerik:RadRibbonBackstageItem>
+                </telerik:RadRibbonBackstage>
+            </telerik:RadRibbonView.Backstage>
+
+            <telerik:RadRibbonView.Items>
+                <telerik:RadRibbonTab Header="Operator" IsSelected="{Binding IsOperatorTabSelected}">
+                    <telerik:RadRibbonGroup Header="Operations" Width="auto">
+                        <telerik:RadRibbonRadioButton Text="Submit" Size="Large" LargeImage="../Images/Play 3 A.ico" GroupName="Operations" Command="{Binding SubmitCommand}" />
+                        <telerik:RadRibbonRadioButton Text="Stop" Size="Large" LargeImage="../Images/Stop.ico"  GroupName="Operations" IsEnabled="False" />
+                    </telerik:RadRibbonGroup>
+
+                    <telerik:RadRibbonGroup Header="Views" Width="auto">
+                        <telerik:RadRibbonToggleButton IsChecked="{Binding ElementGridViewIsChecked}" 
+                                Text="Elements" LargeImage="../Images/flask.jpg" 
+                                Size="Large" Command="{Binding ElementGridViewCommand}"  />
+                        <telerik:RadRibbonToggleButton IsChecked="{Binding GlobalElementsGridViewIsChecked}" 
+                                Text="Global" Width="40"  Height="22" Margin="0,0,0,30"
+                                Size="Large" Command="{Binding GlobalElementsViewCommand}"  />
+                        <telerik:RadRibbonToggleButton IsChecked="{Binding ShowComposedElementsViewIsChecked}" 
+                                Text="Show" Width="40" Height="22" 
+                                Size="Large" Margin="-45,20,0,0" Command="{Binding ShowCommand}" />
+                        <telerik:RadRibbonToggleButton IsChecked="{Binding InterfaceGridViewIsChecked}" 
+                                Text="Interfaces" LargeImage="../Images/Interface 2 large.jpg" 
+                                Size="Large" Command="{Binding InterfacesViewCommand}"  />
+                        <telerik:RadRibbonRadioButton IsChecked="{Binding LogViewIsChecked}" 
+                                Text="Log" LargeImage="../Images/List large.png" 
+                                Size="Large" Command="{Binding LogViewCommand}"  GroupName="Views" />
+                    </telerik:RadRibbonGroup>
+
+                    <telerik:RadRibbonGroup Header="Options" Width="auto">
+
+                    </telerik:RadRibbonGroup>
+
+                </telerik:RadRibbonTab>
+
+                <telerik:RadRibbonTab Header="Administrator" Visibility="Collapsed" >
+                    <telerik:RadRibbonGroup Header="Elements">
+
+                    </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="Interfaces">
+
+                    </telerik:RadRibbonGroup>
+                </telerik:RadRibbonTab>
+
+            </telerik:RadRibbonView.Items>
+
+            <telerik:RadRibbonView.QuickAccessToolBar>
+                <telerik:QuickAccessToolBar>
+                    <telerik:RadRibbonButton SmallImage="../images/Open.png" telerik:RadToolTipService.ToolTipContent="Open"  Command="{Binding OpenFileCommand}" />
+                    <telerik:RadRibbonButton SmallImage="../images/save.png" telerik:RadToolTipService.ToolTipContent="Save" Command="{Binding SaveCommand}" />
+                </telerik:QuickAccessToolBar>
+            </telerik:RadRibbonView.QuickAccessToolBar>
+
+        </telerik:RadRibbonView>
+
+        <telerik:RadBusyIndicator Grid.Row="1" IsBusy="{Binding IsBusy}" >
+                <Grid x:Name="MainWindowBody">
+                    <ListBox Grid.Row="0" ItemsSource="{Binding ViewsList}" ScrollViewer.CanContentScroll="False" />
+                    <ContentControl Grid.Row="0" Content="{Binding ActiveView}"  />
+                    <Popup Grid.Row="0" PlacementTarget="{Binding ElementName=MainWindowBody}" 
+                           IsOpen="{Binding IsDialogOpened}"  
+                           Width="450" Height="130" Placement="Center" >
+                    <Border Background="White" BorderBrush="Black" BorderThickness="2" >
+                            <Grid  >
+                                <Grid.RowDefinitions >
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="40" />
+                                </Grid.RowDefinitions>
+                                <ContentControl Content="{Binding DialogContent}" />
+                                <TextBlock Grid.Row="0" Text="{Binding DialogTextContent}" TextWrapping="Wrap" FontSize="12" FontWeight="Bold" Padding="2" />
+                                <StackPanel Grid.Row="1" HorizontalAlignment="Right" Orientation="Horizontal" >
+                                    <!--<Button Content="Cancel" Command="{Binding DialogCommand}" CommandParameter="Cancel"  Margin="3"/>-->
+                                <Button Content="OK" Command="{Binding DialogCommand}" CommandParameter="OK" Margin="3" FontSize="14" FontWeight="Bold"  />
+                                </StackPanel>
+                            </Grid>
+                    </Border>
+                </Popup> 
+                </Grid>
+
+        </telerik:RadBusyIndicator>
+    </Grid>
+</Window>

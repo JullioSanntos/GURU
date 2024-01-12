@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 GURU", "GURU\3 GURU.csproj", "{7947884E-B686-4A4D-88DF-8573C4172C49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6 GURU.Model", "GURU.Model\6 GURU.Model.csproj", "{23E45A27-E148-49BE-89BF-95146B53F597}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9 GURU.Common", "GURU.Common\9 GURU.Common.csproj", "{CB7402E8-43C3-4062-B62A-712FCE72C881}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FMEA.ConfigurationReader", "FMEA.ConfigurationReader", "{8725C74F-2118-49F4-8085-09BD84FED71A}"
+	ProjectSection(SolutionItems) = preProject
+		FMEA.ConfigurationReader\CExcelMonsterMatrixReaderT.cs = FMEA.ConfigurationReader\CExcelMonsterMatrixReaderT.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{CF1AB302-3CD7-4281-A0C4-7B1B11E977B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GURU.Tests", "GURU.Tests\GURU.Tests.csproj", "{9331F5F2-A79E-434D-B42D-05E9D3D55BE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{990D1E28-06DD-4D33-ADED-5C1921F22B29}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\FMEA.ReportGenerator.dll = Dependencies\FMEA.ReportGenerator.dll
+		Dependencies\FMEA.ReportGenerator.pdb = Dependencies\FMEA.ReportGenerator.pdb
+		Dependencies\FMEA.ReportGenerator.xml = Dependencies\FMEA.ReportGenerator.xml
+		Dependencies\Telerik.Windows.Themes.Office2016.dll = Dependencies\Telerik.Windows.Themes.Office2016.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Telerik", "Telerik", "{BACF3CE0-5883-47B3-836A-360441EB2EA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RCWPF", "RCWPF", "{34D4FB0B-2F7A-4CA2-BB7F-AD6E1D35A835}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2018.3.1016.45", "2018.3.1016.45", "{F37BCC53-8E1C-4004-848F-10DD137E7136}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.dll = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.dll
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Docking.dll = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Docking.dll
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Docking.xml = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Docking.xml
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.dll = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.dll
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.Export.dll = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.Export.dll
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.Export.xml = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.Export.xml
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.xml = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.xml
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Input.dll = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Input.dll
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Input.xml = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Input.xml
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Navigation.dll = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Navigation.dll
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Navigation.xml = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Navigation.xml
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.RibbonView.dll = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.RibbonView.dll
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.RibbonView.xml = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.RibbonView.xml
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.xml = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.xml
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Data.dll = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Data.dll
+		Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Data.xml = Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Data.xml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7947884E-B686-4A4D-88DF-8573C4172C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7947884E-B686-4A4D-88DF-8573C4172C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7947884E-B686-4A4D-88DF-8573C4172C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7947884E-B686-4A4D-88DF-8573C4172C49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23E45A27-E148-49BE-89BF-95146B53F597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23E45A27-E148-49BE-89BF-95146B53F597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23E45A27-E148-49BE-89BF-95146B53F597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23E45A27-E148-49BE-89BF-95146B53F597}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB7402E8-43C3-4062-B62A-712FCE72C881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB7402E8-43C3-4062-B62A-712FCE72C881}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB7402E8-43C3-4062-B62A-712FCE72C881}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB7402E8-43C3-4062-B62A-712FCE72C881}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9331F5F2-A79E-434D-B42D-05E9D3D55BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9331F5F2-A79E-434D-B42D-05E9D3D55BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9331F5F2-A79E-434D-B42D-05E9D3D55BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9331F5F2-A79E-434D-B42D-05E9D3D55BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BACF3CE0-5883-47B3-836A-360441EB2EA9} = {990D1E28-06DD-4D33-ADED-5C1921F22B29}
+		{34D4FB0B-2F7A-4CA2-BB7F-AD6E1D35A835} = {BACF3CE0-5883-47B3-836A-360441EB2EA9}
+		{F37BCC53-8E1C-4004-848F-10DD137E7136} = {34D4FB0B-2F7A-4CA2-BB7F-AD6E1D35A835}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6E5AD78-F49E-4D1A-BA2B-9FC14540D698}
+	EndGlobalSection
+EndGlobal

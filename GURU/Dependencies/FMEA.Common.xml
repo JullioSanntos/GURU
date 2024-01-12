@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FMEA.Common</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:FMEA.Common.CEntry.CompareTo(FMEA.Configuration.IEntry)" -->
+    </members>
+</doc>

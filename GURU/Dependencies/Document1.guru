@@ -1,0 +1,270 @@
+{
+  "$id": "1",
+  "$type": "GURU.Model.MainModel, GURU.Model",
+  "Elements": {
+    "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.Element, GURU.Model]], GURU.Common",
+    "$values": [
+      {
+        "$id": "2",
+        "$type": "GURU.Model.Element, GURU.Model",
+        "ElementType": {
+          "$id": "3",
+          "$type": "GURU.Model.ElementType, GURU.Model",
+          "Id": "12",
+          "Name": "glass",
+          "Description": ""
+        },
+        "GradedConditionTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedInitialConditionType, GURU.Model]], GURU.Common",
+          "$values": [
+            {
+              "$id": "4",
+              "$type": "GURU.Model.GradedInitialConditionType, GURU.Model",
+              "Grade": 3,
+              "Id": "186",
+              "Name": "phase solid"
+            },
+            {
+              "$id": "5",
+              "$type": "GURU.Model.GradedInitialConditionType, GURU.Model",
+              "Grade": 3,
+              "Id": "188",
+              "Name": "powder micro particle"
+            },
+            {
+              "$id": "6",
+              "$type": "GURU.Model.GradedInitialConditionType, GURU.Model",
+              "Grade": 4,
+              "Id": "210",
+              "Name": "stress-state residual global tensile stress"
+            }
+          ]
+        },
+        "GradedInitialStressTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedInitialStressType, GURU.Model]], GURU.Common",
+          "$values": [
+            {
+              "$id": "7",
+              "$type": "GURU.Model.GradedInitialStressType, GURU.Model",
+              "Grade": 3,
+              "Id": "164",
+              "Name": "electrical - current"
+            },
+            {
+              "$id": "8",
+              "$type": "GURU.Model.GradedInitialStressType, GURU.Model",
+              "Grade": 2,
+              "Id": "169",
+              "Name": "mechanical - compression"
+            }
+          ]
+        },
+        "GradedFailureModesTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedFailureModeType, GURU.Model]], GURU.Common",
+          "$values": []
+        },
+        "HasGradedTypes": true,
+        "Id": "7306053",
+        "Name": "20815867"
+      },
+      {
+        "$id": "9",
+        "$type": "GURU.Model.Element, GURU.Model",
+        "ElementType": {
+          "$id": "10",
+          "$type": "GURU.Model.ElementType, GURU.Model",
+          "Id": "13",
+          "Name": "ceramic",
+          "Description": ""
+        },
+        "GradedConditionTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedInitialConditionType, GURU.Model]], GURU.Common",
+          "$values": [
+            {
+              "$id": "11",
+              "$type": "GURU.Model.GradedInitialConditionType, GURU.Model",
+              "Grade": 3,
+              "Id": "190",
+              "Name": "material-configuration film"
+            }
+          ]
+        },
+        "GradedInitialStressTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedInitialStressType, GURU.Model]], GURU.Common",
+          "$values": []
+        },
+        "GradedFailureModesTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedFailureModeType, GURU.Model]], GURU.Common",
+          "$values": [
+            {
+              "$id": "12",
+              "$type": "GURU.Model.GradedFailureModeType, GURU.Model",
+              "Grade": 3,
+              "Id": "340",
+              "Name": "acoustic filtering low"
+            },
+            {
+              "$id": "13",
+              "$type": "GURU.Model.GradedFailureModeType, GURU.Model",
+              "Grade": 4,
+              "Id": "345",
+              "Name": "acoustic resonance high"
+            },
+            {
+              "$id": "14",
+              "$type": "GURU.Model.GradedFailureModeType, GURU.Model",
+              "Grade": 4,
+              "Id": "347",
+              "Name": "acoustic scattering high"
+            }
+          ]
+        },
+        "HasGradedTypes": true,
+        "Id": "24512769",
+        "Name": "34060083"
+      },
+      {
+        "$id": "15",
+        "$type": "GURU.Model.Element, GURU.Model",
+        "ElementType": {
+          "$id": "16",
+          "$type": "GURU.Model.ElementType, GURU.Model",
+          "Id": "9",
+          "Name": "polymer",
+          "Description": ""
+        },
+        "GradedConditionTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedInitialConditionType, GURU.Model]], GURU.Common",
+          "$values": [
+            {
+              "$id": "17",
+              "$type": "GURU.Model.GradedInitialConditionType, GURU.Model",
+              "Grade": 2,
+              "Id": "185",
+              "Name": "phase liquid"
+            },
+            {
+              "$id": "18",
+              "$type": "GURU.Model.GradedInitialConditionType, GURU.Model",
+              "Grade": 3,
+              "Id": "190",
+              "Name": "material-configuration film"
+            }
+          ]
+        },
+        "GradedInitialStressTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedInitialStressType, GURU.Model]], GURU.Common",
+          "$values": [
+            {
+              "$id": "19",
+              "$type": "GURU.Model.GradedInitialStressType, GURU.Model",
+              "Grade": 5,
+              "Id": "163",
+              "Name": "electrical - voltage"
+            },
+            {
+              "$id": "20",
+              "$type": "GURU.Model.GradedInitialStressType, GURU.Model",
+              "Grade": 4,
+              "Id": "168",
+              "Name": "mechanical - tensile"
+            }
+          ]
+        },
+        "GradedFailureModesTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedFailureModeType, GURU.Model]], GURU.Common",
+          "$values": []
+        },
+        "HasGradedTypes": true,
+        "Id": "60677108",
+        "Name": "60677108"
+      }
+    ]
+  },
+  "GlobalElements": {
+    "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GlobalElement, GURU.Model]], GURU.Common",
+    "$values": [
+      {
+        "$id": "21",
+        "$type": "GURU.Model.GlobalElement, GURU.Model",
+        "GradedConditionTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedInitialConditionType, GURU.Model]], GURU.Common",
+          "$values": []
+        },
+        "GradedInitialStressTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedInitialStressType, GURU.Model]], GURU.Common",
+          "$values": []
+        },
+        "Priority": 10,
+        "Id": "27742239"
+      }
+    ]
+  },
+  "Interfaces": {
+    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[GURU.Model.Interface, GURU.Model]], System",
+    "$values": [
+      {
+        "$id": "22",
+        "$type": "GURU.Model.Interface, GURU.Model",
+        "Name": "20815867_34060083",
+        "Element1": {
+          "$ref": "2"
+        },
+        "Element2": {
+          "$ref": "9"
+        },
+        "GradedFailureModesTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedFailureModeType, GURU.Model]], GURU.Common",
+          "$values": [
+            {
+              "$id": "23",
+              "$type": "GURU.Model.GradedFailureModeType, GURU.Model",
+              "Grade": 4,
+              "Id": "339",
+              "Name": "acoustic filtering high"
+            },
+            {
+              "$id": "24",
+              "$type": "GURU.Model.GradedFailureModeType, GURU.Model",
+              "Grade": 5,
+              "Id": "346",
+              "Name": "acoustic resonance low"
+            }
+          ]
+        },
+        "Id": "31664161"
+      },
+      {
+        "$id": "25",
+        "$type": "GURU.Model.Interface, GURU.Model",
+        "Name": "20815867_60677108",
+        "Element1": {
+          "$ref": "2"
+        },
+        "Element2": {
+          "$ref": "15"
+        },
+        "GradedFailureModesTypesList": {
+          "$type": "GURU.Common.ExtendedObservableCollection`1[[GURU.Model.GradedFailureModeType, GURU.Model]], GURU.Common",
+          "$values": [
+            {
+              "$id": "26",
+              "$type": "GURU.Model.GradedFailureModeType, GURU.Model",
+              "Grade": 1,
+              "Id": "339",
+              "Name": "acoustic filtering high"
+            },
+            {
+              "$id": "27",
+              "$type": "GURU.Model.GradedFailureModeType, GURU.Model",
+              "Grade": 2,
+              "Id": "344",
+              "Name": "acoustic reflection low"
+            }
+          ]
+        },
+        "Id": "46983718"
+      }
+    ]
+  }
+}

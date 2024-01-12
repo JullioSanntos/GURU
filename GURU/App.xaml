@@ -1,0 +1,28 @@
+﻿<Application x:Class="GURU.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GURU"
+             xmlns:viewsAndViewModels="clr-namespace:GURU.ViewsAndViewModels"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             StartupUri="ViewsAndViewModels/MainView.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <viewsAndViewModels:MainViewModel x:Key="MainViewModel" />
+            <viewsAndViewModels:ElementsViewModel x:Key="ElementsViewModel" />
+            <viewsAndViewModels:ComposedElementsViewModel x:Key="ComposedElementsViewModel" />
+            <viewsAndViewModels:GlobalElementsViewModel x:Key="GlobalElementsViewModel" />
+            <viewsAndViewModels:InterfacesGridViewModel x:Key="InterfacesGridViewModel" />
+            <viewsAndViewModels:LogViewModel x:Key="LogViewModel" />
+            <viewsAndViewModels:SplashScreenViewModel x:Key="SplashScreenViewModel" />
+            <system:Double x:Key="DropDownWidth" >275</system:Double>
+            <telerik:GridViewLength x:Key="GradeWidth" >70</telerik:GridViewLength>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Office2016;component/Themes/System.Windows.xaml" />
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Office2016;component/Themes/Telerik.Windows.Controls.xaml" />
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Office2016;component/Themes/Telerik.Windows.Controls.Input.xaml" />
+                <ResourceDictionary Source="/Telerik.Windows.Themes.Office2016;component/Themes/Telerik.Windows.Controls.GridView.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,93 @@
+﻿<Window x:Class="GURU.ViewsAndViewModels.MainViewT"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GURU.ViewsAndViewModels"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        mc:Ignorable="d"
+        Title="Main View" Height="800" Width="900">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="RibbonItemTempalte" DataType="{x:Type local:MenuItem}">
+            <telerik:RadRibbonTab Header="{Binding MyHeader}" />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <!--<telerik:RadRibbonView ItemsSource="{Binding MenuItems}" ItemTemplate="{StaticResource RibbonItemTempalte}"  >-->
+        <telerik:RadRibbonView  VerticalAlignment="Stretch" ApplicationName="GURU" 
+                ApplicationButtonContent="File" IsMinimizable="True"  >
+
+                <telerik:RadRibbonView.Backstage>
+                    <telerik:RadRibbonBackstage  >
+                    <telerik:RadRibbonBackstageItem Header="New"  />
+                    <telerik:RadRibbonBackstageItem Header="Open" Icon="../Images/Open.png" Command="{Binding FileOpenCommand}" />
+                            <telerik:RadRibbonBackstageItem Header="Save" Icon="../Images/Save.png"  />
+                            <telerik:RadRibbonBackstageItem Header="Recent">
+                                <StackPanel Margin="10">
+                                    <TextBlock Text="Recent files: " Margin="0 0 0 5" />
+                                    <telerik:RadListBox>
+                                        <telerik:RadListBoxItem Content="Document 1" />
+                                        <telerik:RadListBoxItem Content="Document 2" />
+                                        <telerik:RadListBoxItem Content="Document 3" />
+                                        <telerik:RadListBoxItem Content="Document 4" />
+                                    </telerik:RadListBox>
+                                </StackPanel>
+                            </telerik:RadRibbonBackstageItem>
+                    </telerik:RadRibbonBackstage>
+                </telerik:RadRibbonView.Backstage>
+
+                <telerik:RadRibbonView.Items>
+                    <telerik:RadRibbonTab Header="Operator">
+                    <telerik:RadRibbonGroup Header="Operations" Width="auto">
+                        <telerik:RadRibbonRadioButton Text="Submit" Size="Large" LargeImage="../Images/Play 3 A.ico" GroupName="Operations" />
+                        <telerik:RadRibbonRadioButton Text="Stop" Size="Large" LargeImage="../Images/Stop.ico"  GroupName="Operations" IsEnabled="False" />
+                    </telerik:RadRibbonGroup>
+                    
+                        <telerik:RadRibbonGroup Header="Views" Width="auto">
+                        <telerik:RadRibbonRadioButton Text="Elements" LargeImage="../Images/flask.jpg" 
+                                Size="Large" Command="{Binding ElementGridViewCommand}" GroupName="Views" />
+                        <!--<telerik:RadRibbonRadioButton Text="Interfaces list" LargeImage="../Images/List large.png"
+                                Size="Large" Command="{Binding InterfacesListViewCommand}"  GroupName="Views" />-->
+                        <telerik:RadRibbonRadioButton Text="Interfaces" LargeImage="../Images/Interface 2 large.jpg" 
+                                                       Size="Large" Command="{Binding InterfacesViewCommand}"  GroupName="Views" />
+                        <telerik:RadRibbonRadioButton Text="Log" LargeImage="../Images/List large.png" 
+                                                        Size="Large" Command="{Binding LogViewCommand}"  GroupName="Views" />
+                    </telerik:RadRibbonGroup>
+                    
+                    <telerik:RadRibbonGroup Header="Options" Width="auto">
+
+                    </telerik:RadRibbonGroup>
+
+                </telerik:RadRibbonTab>
+
+                <telerik:RadRibbonTab Header="Administrator" Visibility="Collapsed" >
+                    <telerik:RadRibbonGroup Header="Elements">
+
+                    </telerik:RadRibbonGroup>
+                    <telerik:RadRibbonGroup Header="Interfaces">
+
+                    </telerik:RadRibbonGroup>
+                </telerik:RadRibbonTab>
+
+            </telerik:RadRibbonView.Items>
+
+                <telerik:RadRibbonView.QuickAccessToolBar>
+                    <telerik:QuickAccessToolBar>
+                        <telerik:RadRibbonButton LargeImage="../images/save.png" SmallImage="../images/save.png" telerik:RadToolTipService.ToolTipContent="Save"/>
+                        <telerik:RadRibbonButton SmallImage="../images/Open.png" telerik:RadToolTipService.ToolTipContent="Open"/>
+                    </telerik:QuickAccessToolBar>
+                </telerik:RadRibbonView.QuickAccessToolBar>
+        
+            </telerik:RadRibbonView>
+
+        <ContentControl Grid.Row="1"  Content="{Binding ActiveView}" />
+
+    </Grid>
+</Window>

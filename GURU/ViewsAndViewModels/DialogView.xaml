@@ -1,0 +1,43 @@
+﻿<Window x:Class="GURU.ViewsAndViewModels.DialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GURU.ViewsAndViewModels"
+        xmlns:common="clr-namespace:GURU.Common;assembly=GURU.Common"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="Height"
+        mc:Ignorable="d"
+        Title="{Binding Title}"  Width="550">
+    <Window.DataContext>
+        <common:DialogViewModel />
+    </Window.DataContext>
+    <Border Background="White" BorderBrush="Black" BorderThickness="2" Padding="1" >
+        <Grid  >
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto"  />
+            </Grid.RowDefinitions>
+            <!--<ContentControl Content="{Binding DialogContent}" />-->
+            <StackPanel Orientation="Vertical" Margin="1,1,1,15" >
+                <TextBox IsReadOnly="True" BorderThickness="0" Grid.Row="0" Text="{Binding Message}"
+                     TextWrapping="Wrap" FontSize="14" FontWeight="Bold" Padding="2"  />
+                <ListBox  BorderThickness="0" Grid.Row="0" ItemsSource="{Binding Messages}"
+                     FontSize="14" FontWeight="Bold"   />
+            </StackPanel>
+            <ItemsControl x:Name="CommandsList" Grid.Row="1" ItemsSource="{Binding CommandsList}"  >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal"></StackPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding}" Command="{Binding ElementName=CommandsList, Path=DataContext.SelectionCompletedCommand}"  
+                                VerticalAlignment="Bottom" CommandParameter="{Binding }" Height="30" FontSize="14" FontWeight="Bold" Margin="3,2,0,1" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </Border>
+</Window>

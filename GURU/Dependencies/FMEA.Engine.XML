@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FMEA.Engine</name>
+    </assembly>
+    <members>
+        <member name="M:FMEA.Engine.CEngine.StressAndConditionGeneration(System.Int32,System.Collections.Generic.List{FMEA.Engine.CElementAnalysed},FMEA.Configuration.IConfiguration)">
+            <summary>For one iterration, for each element, uses the stresses and conditions associated with that element and determines what processes will be launched. Stores the
+            results in the associated ElementAnalysed object.</summary>
+            <param name="nIterrationIndex_1"></param>
+            <param name="lstoElementAnalysed"></param>
+            <param name="iConfiguration"></param>
+        </member>
+    </members>
+</doc>

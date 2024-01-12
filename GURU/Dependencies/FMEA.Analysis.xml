@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FMEA.Analysis</name>
+    </assembly>
+    <members>
+        <member name="T:FMEA.Analysis.CAnalysisResults">
+            <summary>
+            NOT USED
+            </summary>
+        </member>
+        <member name="T:FMEA.Analysis.CStressTypesAndConditionTypesWithMagnitudes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FMEA.Analysis.CGeneratedProcesses">
+            <summary>
+            NOT CURRENTLY USED
+            </summary>
+        </member>
+        <member name="T:FMEA.Analysis.CStressAndConditionBase">
+            <summary>
+            Keeps track of the ElementBase a stress or condition type is associated with
+            </summary>
+        </member>
+        <member name="T:FMEA.Analysis.CStress">
+            <summary>
+            Keeps track of the ElementBase a stress type is associated with
+            </summary>
+        </member>
+        <member name="T:FMEA.Analysis.CCondition">
+            <summary>
+            Keeps track of the ElementBase a condition type is associated with
+            </summary>
+        </member>
+        <member name="T:FMEA.Analysis.CStressOrCondition`1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FMEA.Engine.CElementAnalysed">
+             <summary>
+             One of these object is created for each elementbase analysed in the system. It contains:
+             - A link to the corresponding system elementbase.
+             - Element type
+             - List of analysed element neighbors
+             - List of failure modes associated
+             - A flag indicating if new stress types or condition have been added in the previous analysis step
+             - List of all CURRENT stress types and condition types durinng analysis
+             - List of analysis steps results
+            
+             It also contains two methods with the following functionality
+             - Addition of generated stress or condition types based on a list of generated processes
+               passed to the method
+             - Addition of stress and condition types from all neighbors
+             </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FMEA.Engine.CElementAnalysed.AddGeneratedProcessesStressesConditions(System.Int32,System.Collections.Generic.List{FMEA.Configuration.IResultingProcess})" -->
+        <member name="M:FMEA.Engine.CElementAnalysed.GetStressesAndConditionsFromNeighborsStep1(System.Int32)">
+            <summary>
+            Using the list of ElementAnalysed neighbors member that was initialized at the start of the CEngine.PhysicalAnalysis,
+            for each neighbor, this method retreives the list of current (accumulated) conditions and stresses.
+            Step 1 only adds the stresses and conditions to the data structure containing results for the specific iterration
+            this is needed to prevent new stress and cond from the current iterration to be passed to a neighbor
+            </summary>
+            <param name="nIterrationIndex"></param>
+        </member>
+        <member name="M:FMEA.Engine.CElementAnalysed.FinalProcessing">
+            <summary>
+            This method should be called after the last iterration has been processed.
+            It search for relevant failure modes and prepare data for reporting and further
+            analysis
+            </summary>
+        </member>
+        <member name="F:FMEA.Engine.CElementAnalysed.m_dictiProcessTypeAccumulatedByName">
+            <summary>
+            Dictionary containing accumulated processes for all iterration up to now
+            </summary>
+        </member>
+        <member name="F:FMEA.Engine.CElementAnalysed.m_dictConditionAccumulatedByName">
+            <summary>
+            Dictionary containing accumulated conditions for all iterration up to now
+            </summary>
+        </member>
+        <member name="F:FMEA.Engine.CElementAnalysed.m_dictStressAccumulatedByName">
+            <summary>
+            Dictionary containing accumulated stresses for all iterration up to now
+            </summary>
+        </member>
+        <member name="T:FMEA.Engine.CFailureModeAnalysisResultForElement">
+            <summary>
+            Represents a relevent failure mode that was specified by the user along with its severity,
+            and the causing Processes
+            </summary>
+        </member>
+        <member name="T:FMEA.Engine.CProcessAnalysisResultForElement">
+            <summary>
+            Represents the process that caused a failure mode. It contains the probability of cause
+            as well as the list of stress and condition that caused the process
+            </summary>
+        </member>
+        <member name="T:FMEA.Engine.CElementAsStressOrCondGenerator">
+            <summary>
+            	<para>Contains a list of <see cref="T:FMEA.Engine.CPath">CPath Objects</see> which have the same element origine and are for the same StressType or ConditionType. This class only
+            acts as a container and the Path list is set at construction time.  Used in post processing to reorganize the data for reporting after final
+            iterration.</para>
+            	<para>This class is used by <see cref="T:FMEA.Engine.CStressOrCondMultiPath">CStressOrCondMultiPath Class</see> and <see cref="T:FMEA.Engine.CStressOrCondTypeWithHistory`1">CStressOrCondTypeWithHistory&lt;TStrCond&gt;
+            Class</see></para>
+            </summary>
+        </member>
+        <member name="T:FMEA.Engine.CPath">
+            <summary>
+            Contains a list of **Paths** with the same element origine and for the same StressType or ConditionType. This class only acts as a container
+            The path taken by a stress or condition. Includes the elementbase where the stress or condition originated as well as the magnitude when it was generated and the iterration index when it was generated. It also contain a list of elementbase the stress or codition passed through as well as the probability of passing to each elemntbase. An object of this type is contained by a ??? object.
+            </summary>
+        </member>
+        <member name="T:FMEA.Engine.CPhysicalAnalysisIterrationResult">
+            <summary>
+            Analysis results for a single element and a single iterration.
+            Contains:
+            - Iteration index
+            - A list of generated processes
+            - A list of generated stress types
+            - A list of generated condition types
+            - A list of propagated stress types with a list of elementbase origin for each stress type
+            - A list of propagated condition types with a list of elementbase origin for each condition type
+            </summary>
+        </member>
+        <member name="M:FMEA.Engine.CPhysicalAnalysisIterrationResult.#ctor(FMEA.SystemHierarchy.IElementBase,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:FMEA.Engine.CPhysicalAnalysisIterrationResult.#ctor(FMEA.SystemHierarchy.IElementBase,System.Int32,System.Collections.Generic.List{FMEA.Configuration.IResultingProcess},System.Collections.Generic.List{FMEA.Engine.CStressOrCond{FMEA.Configuration.IStressType}},System.Collections.Generic.List{FMEA.Engine.CStressOrCond{FMEA.Configuration.IConditionType}},System.Collections.Generic.List{FMEA.Configuration.IResultingProcess},System.Collections.Generic.List{FMEA.Engine.CStressOrCond{FMEA.Configuration.IStressType}},System.Collections.Generic.List{FMEA.Engine.CStressOrCond{FMEA.Configuration.IConditionType}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+        </member>
+        <member name="M:FMEA.Engine.CPhysicalAnalysisIterrationResult.AddPropagatedStressAndConditions(FMEA.Engine.CElementAnalysed,System.Collections.Generic.List{FMEA.Engine.CStressOrCond{FMEA.Configuration.IStressType}},System.Collections.Generic.List{FMEA.Engine.CStressOrCond{FMEA.Configuration.IConditionType}},System.Collections.Generic.List{FMEA.Engine.CStressOrCond{FMEA.Configuration.IStressType}},System.Collections.Generic.List{FMEA.Engine.CStressOrCond{FMEA.Configuration.IConditionType}})">
+            <summary>
+            Adds the new and previous stresses and condition propagated from one neighbor during an iterration
+            </summary>
+            <param name="oElementAnalysedOrigin"></param>
+            <param name="lstiStressTypeNew"></param>
+            <param name="lstiConditionTypeNew"></param>
+            <param name="lstiStressTypePrevious"></param>
+            <param name="lstiConditionTypePrevious"></param>
+        </member>
+        <member name="M:FMEA.Engine.CPhysicalAnalysisIterrationResult.CombineLists``1(System.Collections.Generic.IEnumerable{FMEA.Engine.CStressOrCond{``0}},System.Collections.Generic.Dictionary{FMEA.Engine.CStressOrCond{``0},FMEA.Engine.CResultingStressCondTypeOnElement{``0}})">
+            <summary>
+            Combines the generated and propagated lists in a single list of CResultingStressCondTypeOnElement objects. 
+            The entry only generated are listed first, then the entry generated and propagated (from neighbor) and finally
+            the entries only propagated (from neighbor).
+            </summary>
+            <typeparam name="TStCond">Stress type or condition type</typeparam>
+            <param name="lstentryGenerated"></param>
+            <param name="lstoPropagated"></param>
+            <param name="dictPropagatedStressTypesNew"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FMEA.Engine.CResultingStressCondTypeOnElement`1">
+            <summary>
+            Represents generated as well as propagated stress or condition at the end of an iterration.
+            Contains a list of origin IElementBase associated with one stress type or condition type
+            as well as a "Generated" flag in case the stress or condition has been generated
+            </summary>
+            <typeparam name="TStCond">Can be either IStressType or IConditionType</typeparam>
+        </member>
+        <member name="M:FMEA.Engine.CResultingStressCondTypeOnElement`1.#ctor(FMEA.SystemHierarchy.IElementBase,FMEA.Engine.CStressOrCond{`0},FMEA.SystemHierarchy.IElementBase,System.Int32)">
+            <summary>
+            Initializes a new instance of the CResultingStressCondTypeOnElement class for a PROPAGATED stress or condition.
+            </summary>
+        </member>
+        <member name="M:FMEA.Engine.CResultingStressCondTypeOnElement`1.#ctor(FMEA.SystemHierarchy.IElementBase,FMEA.Engine.CStressOrCond{`0})">
+            <summary>
+            Initializes a new instance of the CResultingStressCondTypeOnElement class for a GENERATED stress or condition.
+            </summary>
+        </member>
+        <member name="M:FMEA.Engine.CResultingStressCondTypeOnElement`1.#ctor(FMEA.Engine.CResultingStressCondTypeOnElement{`0})">
+            <summary>
+            Copy constructor
+            </summary>
+            <param name="oResultingStressCondTypeOnElement"></param>
+        </member>
+        <member name="T:FMEA.Engine.CStressOrCond`1">
+            <summary>Represents a real stress identified by its type, magnitude, the element and process(es) that caused it as well as the iteration index when it appeared. If the
+            list of process is null it signifies that it was an initial process or condition. IEntry either IStressType or IConditionType. It is used
+            by <see cref="T:FMEA.Engine.CElementAnalysed">CElementAnalysed Class</see> during the computation of the physical analysis result by the physical analysis engine</summary>
+        </member>
+        <member name="M:FMEA.Engine.CStressOrCond`1.#ctor(System.Int32,`0,System.Int32,FMEA.SystemHierarchy.IElementBase,FMEA.Configuration.IResultingProcess)">
+            <summary>
+            Used for initial and generated stress or condition
+            </summary>
+            <param name="nIterrationIndexWhenCreated_0">0 for initial stress or condition</param>
+            <param name="iStressOrConditionType"></param>
+            <param name="nInitialMagnitude"></param>
+            <param name="iElementBaseOrigine"></param>
+            <param name="iResultingProcessesCause">null for an initial stress or condition</param>
+        </member>
+        <member name="M:FMEA.Engine.CStressOrCond`1.#ctor(FMEA.Engine.CStressOrCond{`0},FMEA.Engine.CPathStep)">
+            <summary>
+            Used for propagated stress or condition
+            </summary>
+            <param name="oStressOrCond"></param>
+            <param name="oPathStep"></param>
+        </member>
+        <member name="T:FMEA.Engine.CStressOrCondTypeWithHistory`1">
+            <summary>
+            NOT USED
+            Contains one stress or condition type with its generation/propagation history
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{23E45A27-E148-49BE-89BF-95146B53F597}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GURU.Model</RootNamespace>
+    <AssemblyName>GURU.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Corning.GenSys.ComponentsNoForm, Version=2.0.0.27, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Corning.GenSys.ComponentsNoForm.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EpplusExtension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\EpplusExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.Configuration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.ConfigurationReader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.ConfigurationReader.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.ExtensionMethods, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.ExtensionMethods.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.System, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GURU\Dependencies\FMEA.System.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Shared.v15.2, Version=15.2.20152.2023, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Infragistics4.Shared.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.Misc.v15.2, Version=15.2.20152.2023, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Infragistics4.Win.Misc.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinEditors.v15.2, Version=15.2.20152.2023, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Infragistics4.Win.UltraWinEditors.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinStatusBar.v15.2, Version=15.2.20152.2023, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Infragistics4.Win.UltraWinStatusBar.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinTabControl.v15.2, Version=15.2.20152.2023, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Infragistics4.Win.UltraWinTabControl.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.UltraWinToolbars.v15.2, Version=15.2.20152.2023, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Infragistics4.Win.UltraWinToolbars.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics4.Win.v15.2, Version=15.2.20152.2023, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Infragistics4.Win.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Challenge\CelebrationOptions.cs" />
+    <Compile Include="Challenge\PartyLocation.cs" />
+    <Compile Include="Challenge\RainChancesOnWeekday.cs" />
+    <Compile Include="Challenge\Weekday.cs" />
+    <Compile Include="DI.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="ElementType.cs" />
+    <Compile Include="FailureModeType.cs" />
+    <Compile Include="GlobalElement.cs" />
+    <Compile Include="GradedFailureModeType.cs" />
+    <Compile Include="GradedInitialConditionType.cs" />
+    <Compile Include="GradedInitialStressType.cs" />
+    <Compile Include="Interfaces\IElement.cs" />
+    <Compile Include="InitialConditionType.cs" />
+    <Compile Include="InitialStressType.cs" />
+    <Compile Include="Interface.cs" />
+    <Compile Include="Interfaces\BindableEntityBase.cs" />
+    <Compile Include="Interfaces\ConfiguredBindableEntityBase.cs" />
+    <Compile Include="Interfaces\GradedBindableEntityBase.cs" />
+    <Compile Include="Interfaces\IGradedEntity.cs" />
+    <Compile Include="JSON.Converters\ConfiguredTypesConverter.cs" />
+    <Compile Include="JSON.Converters\GradedTypesConverter.cs" />
+    <Compile Include="JSON.Converters\MainModelConverter.cs" />
+    <Compile Include="MainModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GURU.Common\9 GURU.Common.csproj">
+      <Project>{CB7402E8-43C3-4062-B62A-712FCE72C881}</Project>
+      <Name>9 GURU.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Dependencies\MasterTable V13.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dependencies\MasterTable V14.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Resources\MasterTable V13.xlsx" />
+    <None Include="Resources\MasterTable V14.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dependencies\Corning.GenSys.ComponentsNoForm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\EPPlus.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\EpplusExtension.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Configuration.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.ConfigurationReader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.ExtensionMethods.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Interfaces.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FMEA.Interfaces</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:FMEA.Configuration.IConfiguration.CheckConfigurationCompatible(System.String)" -->
+        <member name="M:FMEA.Configuration.IProcessType.GetRelevantCausedFailuremodeTypeWithProbabilityAndSeverity(System.Collections.Generic.IEnumerable{FMEA.Configuration.IEntryWithNumber{FMEA.Configuration.IFailureModeType}})">
+            <summary>
+            Returns failure mode types along with severity and probability
+            </summary>
+            <param name="ienumFailureModeWithSeverityFromElement"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

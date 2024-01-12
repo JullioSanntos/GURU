@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FMEA.Configuration</name>
+    </assembly>
+    <members>
+        <member name="M:FMEA.Configuration.CConditionType.Create(System.Nullable{System.Int64},System.String,System.String,System.Object[])">
+             <summary>
+            
+             </summary>
+             <param name="lId"></param>
+             <param name="strName"></param>
+             <param name="strDescription"></param>
+             <param name="aobjParam"> IsInitial, IsResulting, PropagateToElement, PropagateToElementJunction
+             All condition types are expected to be at least initial. It does not make sense
+             for a condition type to be only resulting because it would never generate a process and therefore
+             would have no effect on the physical analysis</param>
+             <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:FMEA.Configuration.Configuration.CheckConfigurationCompatible(System.String)" -->
+        <member name="F:FMEA.Configuration.Configuration.m_lCurrentId">
+            <summary>
+            Used to assign an unique id to an entry when none is specified
+            </summary>
+        </member>
+        <member name="F:FMEA.Configuration.Configuration.m_dictloentryAllEntriesById">
+            <summary>
+            Maintained during adds to make sure all entries have unique Id
+            </summary>
+        </member>
+        <member name="F:FMEA.Configuration.Configuration.m_dictloElementTypeByName">
+            <summary>
+            Maintained during adds to make sure all ElementType have unique Name
+            </summary>
+        </member>
+        <member name="F:FMEA.Configuration.Configuration.m_dictloElementJunctionTypeByName">
+            <summary>
+            Maintained during adds to make sure all ElementJunctionType have unique Name
+            </summary>
+        </member>
+        <member name="F:FMEA.Configuration.Configuration.m_dictloStressTypeByName">
+            <summary>
+            Maintained during adds to make sure all StressType have unique Name
+            </summary>
+        </member>
+        <member name="F:FMEA.Configuration.Configuration.m_dictloConditionTypeByName">
+            <summary>
+            Maintained during adds to make sure all ConditionType have unique Name
+            </summary>
+        </member>
+        <member name="F:FMEA.Configuration.Configuration.m_dictloFailureModeTypeByName">
+            <summary>
+            Maintained during adds to make sure all FailureModeType have unique Name
+            </summary>
+        </member>
+        <member name="F:FMEA.Configuration.Configuration.m_dictloProcessTypeByName">
+            <summary>
+            Maintained during adds to make sure all ProcessType have unique Name
+            </summary>
+        </member>
+        <member name="M:FMEA.Configuration.CFailureModeType.Create(System.Nullable{System.Int64},System.String,System.String,System.Object[])">
+             <summary>
+            
+             </summary>
+             <param name="lId"></param>
+             <param name="strName"></param>
+             <param name="strDescription"></param>
+             <param name="aobjParam">PropagateToElement, PropagateToElementJunction</param>
+             <returns></returns>
+        </member>
+        <member name="T:FMEA.Configuration.CResultingProcess">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FMEA.Configuration.CMapper`2.m_a2bMap">
+            <summary>
+            Contains the map [HIndex, VIndex]
+            </summary>
+        </member>
+        <member name="M:FMEA.Configuration.CProcessType.GetRelevantCausedFailuremodeTypeWithProbabilityAndSeverity(System.Collections.Generic.IEnumerable{FMEA.Configuration.IEntryWithNumber{FMEA.Configuration.IFailureModeType}})">
+            <summary>
+            Returns failure mode types along with severity and probability
+            </summary>
+            <param name="ienumFailureModeWithSeverityFromElement"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FMEA.Configuration.CStressType.Create(System.Nullable{System.Int64},System.String,System.String,System.Object[])">
+             <summary>
+            
+             </summary>
+             <param name="lId"></param>
+             <param name="strDescription"></param>
+             <param name="strName"></param>
+             <param name="aobjParam"> IsEnvironementalType, IsInitial, IsResulting </param>
+             <param name="eStressCategory"></param>
+             <param name="bInitial">All stress types are expected to be at least initial. It does not make sense
+             for a stress type to be only resulting because it would never generate a process and therefore
+             would have no effect on the physical analysis</param>
+             <param name="bResulting"></param>
+             <returns></returns>
+        </member>
+    </members>
+</doc>

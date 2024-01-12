@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="GURU.ViewsAndViewModels.SplashScreenView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GURU.ViewsAndViewModels"
+             xmlns:converters="clr-namespace:GURU.Converters"
+             mc:Ignorable="d" 
+             DataContext="{StaticResource SplashScreenViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--<Image Source="../Images/e5e14334890719.56e180acccfdb.png" Stretch="Uniform" />-->
+        <Image Source="../Images/Glasses Guru Transparent.png" Stretch="Uniform" />
+        <Grid >
+            <Grid.Resources>
+                <converters:BooleanToStringConverter x:Key="BooleanToStringConverter" />
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Recent Files:" FontSize="30" FontWeight="Bold" Margin="5"/>
+            <ListBox Grid.Row="1" Height="auto" Margin="10,4"  HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     ItemsSource="{Binding SavedFilesList}" BorderBrush="Transparent" 
+                     ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                     SelectedItem="{Binding SelectedFile}" Background="Transparent" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <!--<StackPanel Orientation="Horizontal" >-->
+                            <TextBlock Text="{Binding Path=FileInfo.Name}" FontSize="20" FontWeight="Bold" 
+                                ToolTip="{Binding FileInfo}" 
+                                Opacity="{Binding FileExist, Converter={StaticResource BooleanToStringConverter}, ConverterParameter='1|0.5'}" />
+                        <!--</StackPanel>-->
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </Grid>
+    </Grid>
+</UserControl>

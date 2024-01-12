@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FMEA.ReportGenerator</name>
+    </assembly>
+    <members>
+        <member name="M:FMEA.ReportGenerator.CReportGeneratorExcel.WriteGenStressOrCondList``1(OfficeOpenXml.ExcelWorksheet,OfficeOpenXml.ExcelCellAddress,System.Collections.Generic.IEnumerable{FMEA.Engine.CResultingStressCondTypeOnElement{``0}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntry"></typeparam>
+            <param name="oExcelWorksheet"></param>
+            <param name="excelcelladdressStart"></param>
+            <param name="lstcondGeneratedAndFromNeighbors"></param>
+            <returns>Row index below the last entry</returns>
+        </member>
+        <member name="M:FMEA.ReportGenerator.CReportGeneratorExcel.WriteProcessListWithRisks(OfficeOpenXml.ExcelWorksheet,OfficeOpenXml.ExcelCellAddress,System.Collections.Generic.IEnumerable{FMEA.Configuration.IResultingProcess},FMEA.Engine.CElementAnalysed)">
+            <summary>
+            Should be used after the last iterration results using accumulated data
+            </summary>
+            <param name="oExcelWorksheet"></param>
+            <param name="excelcelladdressStart"></param>
+            <param name="lstiProcess"></param>
+            <param name="oElementAnalysed"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FMEA.ReportGenerator.CRiskReportGeneratorExcel.WriteGenStressOrCondList``1(OfficeOpenXml.ExcelWorksheet,OfficeOpenXml.ExcelCellAddress,System.Collections.Generic.IEnumerable{FMEA.Engine.CResultingStressCondTypeOnElement{``0}})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntry"></typeparam>
+            <param name="oExcelWorksheet"></param>
+            <param name="excelcelladdressStart"></param>
+            <param name="lstcondGeneratedAndFromNeighbors"></param>
+            <returns>Row index below the last entry</returns>
+        </member>
+        <member name="M:FMEA.ReportGenerator.CRiskReportGeneratorExcel.WriteProcessListWithRisks(OfficeOpenXml.ExcelWorksheet,OfficeOpenXml.ExcelCellAddress,System.Collections.Generic.IEnumerable{FMEA.Configuration.IResultingProcess},FMEA.Engine.CElementAnalysed)">
+            <summary>
+            Should be used after the last iterration results using accumulated data
+            </summary>
+            <param name="oExcelWorksheet"></param>
+            <param name="excelcelladdressStart"></param>
+            <param name="lstiProcess"></param>
+            <param name="oElementAnalysed"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

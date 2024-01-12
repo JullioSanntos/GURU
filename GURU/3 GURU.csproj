@@ -1,0 +1,514 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props" Condition="Exists('..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7947884E-B686-4A4D-88DF-8573C4172C49}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GURU</RootNamespace>
+    <AssemblyName>GURU</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Projects\Science_and_Technology\GURU\DevBranches\DevJulio\Publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F89F44EB1E43CA5992993D9856FB3EA6DB236308</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>3 GURU_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Corning.GenSys.ComponentsNoForm, Version=2.0.0.27, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Corning.GenSys.ComponentsNoForm.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EpplusExtension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\EpplusExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.Analysis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.Analysis.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.Configuration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.ConfigurationReader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.ConfigurationReader.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.Engine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.ExtensionMethods, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.ExtensionMethods.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.ReportGenerator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.ReportGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.System, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.System.dll</HintPath>
+    </Reference>
+    <Reference Include="FMEA.SystemHierarchyReader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\FMEA.SystemHierarchyReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking">
+      <HintPath>..\Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView">
+      <HintPath>..\Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView.Export">
+      <HintPath>..\Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.GridView.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+      <HintPath>..\Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+      <HintPath>..\Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView">
+      <HintPath>..\Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+      <HintPath>..\Dependencies\Telerik\RCWPF\2018.3.1016.45\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Themes.Office2016">
+      <HintPath>..\Dependencies\Telerik.Windows.Themes.Office2016.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Behaviors\DoubleClickSelectionBehavior.cs" />
+    <Compile Include="Behaviors\SelectedItemsBindingBehavior.cs" />
+    <Compile Include="Converters\BooleanToStringConverter.cs" />
+    <Compile Include="Converters\GradedConditionTypesListToStringConverter.cs" />
+    <Compile Include="Converters\NewPlaceHolderToInterfaceConverter.cs" />
+    <Compile Include="DI.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewsAndViewModels\ComposedElementsView.xaml.cs">
+      <DependentUpon>ComposedElementsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\ComposedElementsViewModel.cs" />
+    <Compile Include="ViewsAndViewModels\Customer.cs" />
+    <Compile Include="ViewsAndViewModels\DialogView.xaml.cs">
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\DockingSample.xaml.cs">
+      <DependentUpon>DockingSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\ElementsView.xaml.cs">
+      <DependentUpon>ElementsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\GlobalElementsView.xaml.cs">
+      <DependentUpon>GlobalElementsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\GlobalElementsViewModel.cs" />
+    <Compile Include="ViewsAndViewModels\ElementsViewModel.cs" />
+    <Compile Include="ViewsAndViewModels\InterfacesGridView.xaml.cs">
+      <DependentUpon>InterfacesGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\InterfacesGridViewModel.cs" />
+    <Compile Include="ViewsAndViewModels\LogView.xaml.cs">
+      <DependentUpon>LogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\LogViewModel.cs" />
+    <Compile Include="ViewsAndViewModels\MainViewModel.cs" />
+    <Compile Include="ViewsAndViewModels\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\MenuItem.cs" />
+    <Compile Include="ViewsAndViewModels\SerilzFileInfo.cs" />
+    <Compile Include="ViewsAndViewModels\SplashScreenView.xaml.cs">
+      <DependentUpon>SplashScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\MultiSelectTestView.xaml.cs">
+      <DependentUpon>MultiSelectTestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewsAndViewModels\MultiSelectTestViewModel.cs" />
+    <Compile Include="ViewsAndViewModels\SplashScreenViewModel.cs" />
+    <Page Include="ViewsAndViewModels\ComposedElementsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewsAndViewModels\DialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewsAndViewModels\DockingSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewsAndViewModels\ElementsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="ViewsAndViewModels\GlobalElementsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewsAndViewModels\InterfacesGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="ViewsAndViewModels\LogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewsAndViewModels\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewsAndViewModels\SplashScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewsAndViewModels\MultiSelectTestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Resource Include="FodyWeavers.xml" />
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="3 GURU_TemporaryKey.pfx" />
+    <None Include="Dependencies\Document1.guru">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="FodyWeavers.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Images\aero_working.ani" />
+    <EmbeddedResource Include="MasterTables\MasterTable V13.xlsx" />
+    <Content Include="Dependencies\Corning.GenSys.ComponentsNoForm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\Corning.GenSys.ComponentsNoForm.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\Corning.GenSys.ComponentsNoForm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\EPPlus.dll" />
+    <Content Include="Dependencies\EPPlus.pdb" />
+    <Resource Include="Dependencies\EPPlus.XML" />
+    <Content Include="Dependencies\EpplusExtension.dll" />
+    <Content Include="Dependencies\EpplusExtension.pdb" />
+    <Content Include="Dependencies\FMEA.Analysis.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Analysis.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Analysis.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Common.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Common.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Configuration.dll" />
+    <Content Include="Dependencies\FMEA.Configuration.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Configuration.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.ConfigurationReader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.ConfigurationReader.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Engine.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Engine.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Engine.XML">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.ExtensionMethods.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.ExtensionMethods.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Interfaces.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Interfaces.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.Interfaces.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.ReportGenerator.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.ReportGenerator.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.System.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.System.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dependencies\FMEA.SystemHierarchyReader.dll" />
+    <EmbeddedResource Include="MasterTables\MasterTable V14.xlsx" />
+    <None Include="NLog.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GURU.Common\9 GURU.Common.csproj">
+      <Project>{CB7402E8-43C3-4062-B62A-712FCE72C881}</Project>
+      <Name>9 GURU.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GURU.Model\6 GURU.Model.csproj">
+      <Project>{23e45a27-e148-49be-89bf-95146b53f597}</Project>
+      <Name>6 GURU.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\111111dafc880c062ec3de10bc1d8acf93f59fc7.jpg" />
+    <Resource Include="Images\Guru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\e5e14334890719.56e180acccfdb.png" />
+    <Resource Include="Images\guru-meditating-cartoon-character-daily-sketch-coghill.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Business-guru-cartoon-purchased.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Open.png" />
+    <Resource Include="Images\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Glasses Guru small.png" />
+    <Resource Include="Images\Glasses Guru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Business-guru-cartoon-purchased small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Grid small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\grid-pre-3-w125%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Grid large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\test-list-blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\List small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\elements large.jpg" />
+    <Resource Include="Images\elements.jpg" />
+    <Resource Include="Images\four_nations_by_caiophox-d4u2pwq.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Elements Transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Abort.Image.png" />
+    <Resource Include="Images\appearance28.Image.png" />
+    <Resource Include="Images\Buttons.jpg" />
+    <Resource Include="Images\LoadGlass.png" />
+    <Resource Include="Images\Pause.ico" />
+    <Resource Include="Images\Play 3 A.ico" />
+    <Resource Include="Images\Play 6.png" />
+    <Resource Include="Images\Play.ico" />
+    <Resource Include="Images\Re-Match.png" />
+    <Resource Include="Images\ReStart.ico" />
+    <Resource Include="Images\Setup.bmp" />
+    <Resource Include="Images\Start Button.png" />
+    <Resource Include="Images\Step Next.ico" />
+    <Resource Include="Images\Stop.ico" />
+    <Resource Include="Images\Unload.ico" />
+    <Resource Include="Images\Unload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\diagram-of-an-element-and-molecule.png" />
+    <Resource Include="Images\molecules.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Flask.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Interface 2 large.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\log-file-1-504262.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\List large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Images\Glasses Guru Transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.4.0.2\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.4.0.2\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Costura.Fody.3.3.2\build\Costura.Fody.props'))" />
+  </Target>
+</Project>

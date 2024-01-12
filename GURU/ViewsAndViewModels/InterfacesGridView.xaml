@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="GURU.ViewsAndViewModels.InterfacesGridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GURU.ViewsAndViewModels"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:model="clr-namespace:GURU.Model;assembly=GURU.Model"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:behaviors="clr-namespace:GURU.Behaviors"
+             mc:Ignorable="d" 
+             DataContext="{StaticResource InterfacesGridViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800" >
+    <UserControl.Resources>
+        <Style x:Key="ItemContainerStyle" TargetType="ContentPresenter">
+            <Setter Property="Margin" Value="0 1 0 0" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#FF2A579A" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <TextBlock Text="Interfaces" FontSize="16" Foreground="White" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        </Border>
+        <telerik:RadGridView Grid.Row="1" NewRowPosition="Bottom" GroupRenderMode="Flat" 
+            ItemsSource="{Binding Interfaces, Source={x:Static model:MainModel.Instance}}" 
+            SelectedItem="{Binding SelectedInterface}" AutoGenerateColumns="False" 
+            AddingNewDataItem="GridViewDataControl_OnAddingNewDataItem" 
+            ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" ShowGroupPanel="False">
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" Width="153" IsReadOnly="True" Header="Name"/>
+                <telerik:GridViewComboBoxColumn Header="Element1" DisplayMemberPath="Name"  
+                    DataMemberBinding="{Binding Element1, UpdateSourceTrigger=PropertyChanged}" 
+                    ItemsSourceBinding="{Binding Element1Elements, UpdateSourceTrigger=PropertyChanged}"  />
+                <telerik:GridViewComboBoxColumn Header="Element2" DisplayMemberPath="Name" 
+                    DataMemberBinding="{Binding Element2, UpdateSourceTrigger=PropertyChanged}" 
+                    ItemsSourceBinding="{Binding Element2Elements, UpdateSourceTrigger=PropertyChanged}"  />
+
+                <!--#region Initial Failure Types-->
+                <telerik:GridViewBoundColumnBase Header="Failure Mode Types" DataMemberBinding="{Binding GradedFailureModesTypesList}" MaxWidth="500">
+                    <telerik:GridViewBoundColumnBase.CellTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding GradedFailureModesTypesList}" ItemContainerStyle="{StaticResource ItemContainerStyle}" Padding="0 0 0 1" />
+                        </DataTemplate>
+                    </telerik:GridViewBoundColumnBase.CellTemplate>
+                    <telerik:GridViewBoundColumnBase.CellEditTemplate>
+                        <DataTemplate>
+                            <telerik:RadMultiColumnComboBox DisplayMemberPath="Abbreviation" 
+                                SelectionMode="Multiple" KeepDropDownOpen="False" MinWidth="{StaticResource DropDownWidth}">
+                                <telerik:RadMultiColumnComboBox.Resources>
+                                    <Style TargetType="telerik:RadGridView" BasedOn="{StaticResource RadGridViewStyle}">
+                                        <Setter Property="EditTriggers" Value="CellClick" />
+                                        <Setter Property="CanUserSelect" Value="False" />
+                                    </Style>
+                                </telerik:RadMultiColumnComboBox.Resources>
+                                <i:Interaction.Behaviors>
+                                    <behaviors:SelectedItemsBindingBehavior TargetSelectedItems="{Binding GradedFailureModesTypesList}" />
+                                    <behaviors:DoubleClickSelectionBehavior />
+                                </i:Interaction.Behaviors>
+
+                                <telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                                    <telerik:GridViewItemsSourceProvider AutoGenerateColumns="False"
+                                        ItemsSource="{Binding Source={StaticResource InterfacesGridViewModel}, Path=AvailableGradedFailureModeTypesList}">
+                                        <telerik:GridViewItemsSourceProvider.Columns>
+                                            <!--<telerik:GridViewDataColumn DataMemberBinding="{Binding Grade}" Width="{StaticResource GradeWidth}" />-->
+                                            <telerik:GridViewComboBoxColumn DataMemberBinding="{Binding Grade}"
+                                                    ItemsSourceBinding ="{Binding ValidGrades}"
+                                                    Header="Severity"  Width="{StaticResource GradeWidth}"/>
+                                            <telerik:GridViewDataColumn DataMemberBinding="{Binding Name}" IsReadOnly="True" />
+                                        </telerik:GridViewItemsSourceProvider.Columns>
+                                    </telerik:GridViewItemsSourceProvider>
+                                </telerik:RadMultiColumnComboBox.ItemsSourceProvider>
+                            </telerik:RadMultiColumnComboBox>
+                        </DataTemplate>
+                    </telerik:GridViewBoundColumnBase.CellEditTemplate>
+                </telerik:GridViewBoundColumnBase>
+                <!--#endregion Initial Failure Types-->
+
+                <!--<telerik:GridViewComboBoxColumn Header="Failure Mode Type" DisplayMemberPath="Name" 
+                                                DataMemberBinding="{Binding FailureModeType, UpdateSourceTrigger=PropertyChanged}" 
+                                                ItemsSource="{Binding FailureModeTypes, Source={x:Static model:MainModel.Instance}}"  />-->
+                <telerik:GridViewDataColumn DataMemberBinding="{Binding Description}" Width="300" Header="Description"/>
+
+
+            </telerik:RadGridView.Columns>
+
+        </telerik:RadGridView>
+
+
+    </Grid>
+</UserControl>
+<!--telerik:StyleManager.Theme="Summer"-->
+<!--StyleManager.ApplicationTheme = new VistaTheme();-->
