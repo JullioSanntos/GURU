@@ -156,18 +156,19 @@ namespace GURU
             try
             {
                 var splashScreenViewModel = this.Resources[nameof(SplashScreenViewModel)] as SplashScreenViewModel;
-                if (splashScreenViewModel.SavedFilesList.Any() == false)
+
+                //if SavedFilesList is empty add a working GURU file as a demo
+                if (SplashScreenViewModel.SavedFilesFileInfo.Exists == false)
                 {
-                    var binPath = new DirectoryInfo(Assembly.GetExecutingAssembly().Location).Parent.Parent;
-                    var execPath = binPath.EnumerateDirectories().First();
-                    var depencPath = execPath.GetDirectories().First(d => d.Name == "Dependencies");
-                    var guruFile = depencPath.GetFiles().First(file => file.Name.EndsWith("guru"));
+ 
+                    var guruFile = SplashScreenViewModel.DependenciesDir.GetFiles().First(file => file.Name.EndsWith("guru"));
                     if (guruFile.Exists)
                     {
                         var srlzdGuruFile = new SerilzFileInfo(guruFile.FullName);
                         splashScreenViewModel.SavedFilesList.Add(srlzdGuruFile);
                     }
                 }
+                TrySerializeSavedFilesList();
                 var savedFilesPath = SplashScreenViewModel.SavedFilesFileInfo.ToString();
                 var savedFilesListContent = File.ReadAllText(savedFilesPath);
                 if (splashScreenViewModel != null)
@@ -181,6 +182,7 @@ namespace GURU
                 Logger.Instance.LogEntries.Add(new LogEntry(e));
                 return false;
             }
+            
 
             return true;
         }
@@ -196,7 +198,6 @@ namespace GURU
                 var serializingSettings = new JsonSerializerSettings() { PreserveReferencesHandling = PreserveReferencesHandling.Objects, TypeNameHandling = TypeNameHandling.All };
                 var srldObj = JsonConvert.SerializeObject(splashScreenViewModel.SavedFilesList, Formatting.Indented, settings: serializingSettings);
                 File.WriteAllText(savedFilesPath, srldObj);
-
             }
             catch (Exception e)
             {

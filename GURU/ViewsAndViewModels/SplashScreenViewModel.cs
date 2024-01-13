@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using GURU.Common;
@@ -18,13 +19,28 @@ namespace GURU.ViewsAndViewModels
         [JsonIgnore]
         public static FileInfo SavedFilesFileInfo {
             get {
-                var fileName = Path.Combine(MainViewModel.AppDataFolderInfo.ToString(), @"SavedFiles.json");
+                //var fileName = Path.Combine(MainViewModel.AppDataFolderInfo.ToString(), @"SavedFiles.json");
+                var fileName = Path.Combine(DependenciesDir.FullName, @"SavedFiles.json");
                 var fileInfo = new FileInfo(fileName);
                 if (fileInfo.Exists == false) fileInfo.Create();
                 return fileInfo;
             }
         }
         #endregion SavedFilesFileInfo
+
+        private FileInfo fileInfo1;
+
+        [JsonIgnore]
+        public static DirectoryInfo DependenciesDir
+        {
+            get {
+                var binPath = new DirectoryInfo(Assembly.GetExecutingAssembly().Location).Parent.Parent;
+                var execPath = binPath.EnumerateDirectories().First();
+                var depencPath = execPath.GetDirectories().First(d => d.Name == "Dependencies");
+                return depencPath; 
+            }
+        }
+
 
         #region SavedFilesList
         private ExtendedObservableCollection<SerilzFileInfo> _savedFilesList;
