@@ -47,7 +47,7 @@ namespace GURU.Tests.Model
             sut.Serialize(fileFullName, filesList);
             Assert.IsTrue(fileInfo.Exists);
 
-            var newFileInfos = sut.Deserialize(fileFullName);
+            var newFileInfos = sut.Deserialize< ExtendedObservableCollection<SerilzFileInfo>>(fileFullName);
 
             Assert.AreEqual(newFileInfos.Count, 2);
         }
@@ -64,10 +64,9 @@ namespace GURU.Tests.Model
             filesList.Add(new SerilzFileInfo(fileInfo.FullName));
             sut.Serialize(fileFullName, filesList);
 
-            var tutorial = sut.Deserialize(fileFullName);
+            var tutorial = sut.Deserialize<ExtendedObservableCollection<SerilzFileInfo>>(fileFullName);
 
             Assert.IsNotNull(tutorial);
-            //Assert.IsNotNull(tutorial.Name);
         }
     }
 }

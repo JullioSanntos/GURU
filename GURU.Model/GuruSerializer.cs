@@ -60,15 +60,15 @@ namespace GURU.Model
 
         }
 
-        public ExtendedObservableCollection<SerilzFileInfo> Deserialize(string fileFullname)
+        public T Deserialize<T>(string fileFullname)
         {
 
             // deserialize JSON directly from a file
-            ExtendedObservableCollection<SerilzFileInfo> fileInfos;
+            T fileInfos;
             using (StreamReader file = File.OpenText(fileFullname))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                fileInfos = (ExtendedObservableCollection<SerilzFileInfo>)serializer.Deserialize(file, typeof(ExtendedObservableCollection<SerilzFileInfo>));
+                fileInfos = (T)serializer.Deserialize(file, typeof(T));
             }
 
             return fileInfos;
