@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GURU.Common;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace GURU.Model
         public string Name { get; set; }
     }
 
-    public class JsonTutorial
+    public class GuruSerializer
     {
 
         #region SavedFilesFileInfo
@@ -24,10 +25,8 @@ namespace GURU.Model
         {
             get
             {
-                //var fileName = Path.Combine(MainViewModel.AppDataFolderInfo.ToString(), @"SavedFiles.json");
                 var fileName = Path.Combine(DependenciesDir.FullName, @"SavedFiles.json");
                 var fileInfo = new FileInfo(fileName);
-                //if (fileInfo.Exists == false) fileInfo.Create();
                 return fileInfo;
             }
         }
@@ -50,42 +49,29 @@ namespace GURU.Model
 
         //IFormatter formatter = new BinaryFormatter();
 
-        public void Serialize(string fileFullname, Tutorial tutorial = null)
+        public void Serialize(string fileFullname, ExtendedObservableCollection<SerilzFileInfo> fileInfos)
         {
-            if (tutorial == null) tutorial = new Tutorial { ID = 1, Name = ".Net" };
-            //using (FileStream stream = new FileStream("Example.txt", FileMode.Create, FileAccess.Write))
-            //{
-            //formatter.Serialize(stream, tutorial);
-            //}
-            // serialize JSON directly to a file
+            //if (tutorial == null) tutorial = new Tutorial { ID = 1, Name = ".Net" };
 
-            //using (StreamWriter file = File.CreateText(@"Tutorial.json"))  {
             using (StreamWriter file = File.CreateText(fileFullname)) {
                 JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, tutorial);
+                serializer.Serialize(file, fileInfos);
             }
 
         }
 
-        public Tutorial Deserialize(string fileFullname)
+        public ExtendedObservableCollection<SerilzFileInfo> Deserialize(string fileFullname)
         {
 
             // deserialize JSON directly from a file
-            Tutorial tutorial;
+            ExtendedObservableCollection<SerilzFileInfo> fileInfos;
             using (StreamReader file = File.OpenText(fileFullname))
             {
                 JsonSerializer serializer = new JsonSerializer();
-                tutorial = (Tutorial)serializer.Deserialize(file, typeof(Tutorial));
+                fileInfos = (ExtendedObservableCollection<SerilzFileInfo>)serializer.Deserialize(file, typeof(ExtendedObservableCollection<SerilzFileInfo>));
             }
 
-            return tutorial;
-
-            //// Deserialization
-            //Tutorial deserializedTutorial;
-            //using (FileStream stream = new FileStream("Example.txt", FileMode.Open, FileAccess.Read))
-            //{
-            //    deserializedTutorial = (Tutorial)formatter.Deserialize(stream);
-            //}
+            return fileInfos;
         }
     }
 

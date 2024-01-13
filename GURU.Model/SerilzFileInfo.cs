@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GURU.Common;
 
-namespace GURU.ViewsAndViewModels
+namespace GURU.Model
 {
     public class SerilzFileInfo : BindableBase
     {
@@ -21,10 +21,6 @@ namespace GURU.ViewsAndViewModels
             {
                 SetProperty(ref _filePath, value);
                 RaisePropertyChanged(nameof(FileInfo));
-                //if (string.IsNullOrEmpty(FileInfo?.DirectoryName) == false)
-                //    FilesWatcher = new FileSystemWatcher(FileInfo.DirectoryName) {EnableRaisingEvents = true};
-                //else
-                //    FilesWatcher = null;
             }
         }
         #endregion FilePath
@@ -32,9 +28,12 @@ namespace GURU.ViewsAndViewModels
         #region FileInfo
         private FileInfo _fileInfo;
 
-        public FileInfo FileInfo {
-            get {
-                if (_fileInfo == null) {
+        public FileInfo FileInfo
+        {
+            get
+            {
+                if (_fileInfo == null)
+                {
                     _fileInfo = new FileInfo(FilePath);
                     RaisePropertyChanged(nameof(FileInfo));
                 }
@@ -72,7 +71,7 @@ namespace GURU.ViewsAndViewModels
 
         //private void FileInfoFolderChanged(object sender, FileSystemEventArgs e)
         //{
-            
+
         //}
         //#endregion FilesWatcher
 

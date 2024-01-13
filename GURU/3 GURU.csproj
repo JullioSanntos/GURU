@@ -219,7 +219,6 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewsAndViewModels\MenuItem.cs" />
-    <Compile Include="ViewsAndViewModels\SerilzFileInfo.cs" />
     <Compile Include="ViewsAndViewModels\SplashScreenView.xaml.cs">
       <DependentUpon>SplashScreenView.xaml</DependentUpon>
     </Compile>

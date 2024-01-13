@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GURU.Common;
 using GURU.Common.Interfaces;
+using GURU.Model;
 using GURU.Model.Interfaces;
 using Newtonsoft.Json;
 
