@@ -26,8 +26,6 @@ namespace GURU.Model
         }
         #endregion SavedFilesFileInfo
 
-        private FileInfo fileInfo1;
-
         [JsonIgnore]
         public static DirectoryInfo DependenciesDir
         {
@@ -43,7 +41,7 @@ namespace GURU.Model
 
         //IFormatter formatter = new BinaryFormatter();
 
-        public void Serialize(string fileFullname, ExtendedObservableCollection<SerilzFileInfo> fileInfos)
+        public void Serialize<T>(string fileFullname, T fileInfos)
         {
             //if (tutorial == null) tutorial = new Tutorial { ID = 1, Name = ".Net" };
 
