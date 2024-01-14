@@ -31,7 +31,7 @@ namespace GURU.Model
         {
             get
             {
-                var binPath = new DirectoryInfo(Assembly.GetExecutingAssembly().Location).Parent.Parent;
+                var binPath = (new DirectoryInfo(Assembly.GetEntryAssembly().Location)).Parent.Parent;
                 var execPath = binPath.EnumerateDirectories().First();
                 var depencPath = execPath.GetDirectories().First(d => d.Name == "Dependencies");
                 return depencPath;
@@ -46,7 +46,8 @@ namespace GURU.Model
             //if (tutorial == null) tutorial = new Tutorial { ID = 1, Name = ".Net" };
 
             using (StreamWriter file = File.CreateText(fileFullname)) {
-                var serializingSettings = new JsonSerializerSettings() { PreserveReferencesHandling = PreserveReferencesHandling.Objects, TypeNameHandling = TypeNameHandling.All };
+                var serializingSettings = new JsonSerializerSettings() { PreserveReferencesHandling = PreserveReferencesHandling.Objects
+                    , TypeNameHandling = TypeNameHandling.All, Formatting = Formatting.Indented };
                 var serializer = JsonSerializer.CreateDefault(serializingSettings);
                 //JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, fileInfos);
@@ -65,7 +66,7 @@ namespace GURU.Model
                 fileInfos = (T)serializer.Deserialize(file, typeof(T));
             }
 
-            return fileInfos;
+            return fileInfos ;
         }
     }
 

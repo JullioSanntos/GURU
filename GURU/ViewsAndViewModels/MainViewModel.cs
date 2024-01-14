@@ -472,29 +472,6 @@ namespace GURU.ViewsAndViewModels
 
         #region OpenFileCommand
         public ICommand OpenFileCommand { get { return new RelayCommand((a) => { TryOpenGuruFile(); /*ActiveView = ElementsGridView; */}); } }
-        //public ICommand OpenFileCommand { get { return new RelayCommand(async (a) => { await TryOpenGuruFileAsync(); /*ActiveView = ElementsGridView; */}); } }
-
-
-        //public async Task<bool> TryOpenGuruFileAsync()
-        //{
-        //    IsBusy = true;
-        //    var tcs = new TaskCompletionSource<bool>();
-        //    var result = false;
-        //    try
-        //    {
-        //        result = Dispatcher.Invoke(() => TryOpenGuruFile());
-        //        tcs.SetResult(result);
-        //    }
-        //    catch (Exception excpt)
-        //    {
-        //        tcs.SetException(excpt);
-        //        IsBusy = false;
-        //        throw;
-        //    }
-
-        //    IsBusy = false;
-        //    return result;
-        //}
 
         public bool TryOpenGuruFile(/*string filename*/)
         {
@@ -561,7 +538,7 @@ namespace GURU.ViewsAndViewModels
 
                 if (MainModel.Instance.Elements.Where(e => e.Parent == null).Any()) System.Diagnostics.Debugger.Break();
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 Console.WriteLine(traceWriter);
                 var dialogViewModel = DialogsFactory(null) as DialogViewModel;
