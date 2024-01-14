@@ -9,12 +9,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GURU.Model
 {
-    [Serializable]
-    public class Tutorial
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-    }
 
     public class GuruSerializer
     {
@@ -54,7 +48,9 @@ namespace GURU.Model
             //if (tutorial == null) tutorial = new Tutorial { ID = 1, Name = ".Net" };
 
             using (StreamWriter file = File.CreateText(fileFullname)) {
-                JsonSerializer serializer = new JsonSerializer();
+                var serializingSettings = new JsonSerializerSettings() { PreserveReferencesHandling = PreserveReferencesHandling.Objects, TypeNameHandling = TypeNameHandling.All };
+                var serializer = JsonSerializer.CreateDefault(serializingSettings);
+                //JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, fileInfos);
             }
 
