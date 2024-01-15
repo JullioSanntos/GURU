@@ -521,9 +521,11 @@ namespace GURU.ViewsAndViewModels
 
         public void DeserializeGuruFile()
         {
+            ITraceWriter traceWriter = new MemoryTraceWriter();
+
+            if (OpenFileInfo.Exists == false) { OpenFileDiaglog(); }
             var fileContent = File.ReadAllText(OpenFileInfo.ToString());
             ViewsList.Clear();
-            ITraceWriter traceWriter = new MemoryTraceWriter();
 
             try
             {
@@ -541,13 +543,22 @@ namespace GURU.ViewsAndViewModels
             catch (Exception )
             {
                 Console.WriteLine(traceWriter);
-                var dialogViewModel = DialogsFactory(null) as DialogViewModel;
-                dialogViewModel.Title = "Open file dialog";
-                dialogViewModel.Message = $"{OpenFileInfo.ToString()} deserialization failed.";
-                dialogViewModel.ShowDialog();
+                OpenFileDiaglog();
+                //var dialogViewModel = DialogsFactory(null) as DialogViewModel;
+                //dialogViewModel.Title = "Open file dialog";
+                //dialogViewModel.Message = $"{OpenFileInfo.ToString()} deserialization failed.";
+                //dialogViewModel.ShowDialog();
                 throw;
             }
 
+        }
+
+        public void OpenFileDiaglog() {
+
+            var dialogViewModel = DialogsFactory(null) as DialogViewModel;
+            dialogViewModel.Title = "Open file dialog";
+            dialogViewModel.Message = $"{OpenFileInfo.ToString()} deserialization failed.";
+            dialogViewModel.ShowDialog();
         }
 
         #endregion OpenFileCommand
