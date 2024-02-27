@@ -219,6 +219,7 @@
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewsAndViewModels\MenuItem.cs" />
+    <Compile Include="ViewsAndViewModels\SerilzFileInfo.cs" />
     <Compile Include="ViewsAndViewModels\SplashScreenView.xaml.cs">
       <DependentUpon>SplashScreenView.xaml</DependentUpon>
     </Compile>
@@ -293,9 +294,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="3 GURU_TemporaryKey.pfx" />
-    <None Include="Dependencies\Document1.guru">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="FodyWeavers.xsd">
       <SubType>Designer</SubType>
     </None>

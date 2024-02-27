@@ -8,7 +8,6 @@ using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Interop;
@@ -69,7 +68,17 @@ namespace GURU
             var compositionContainer = new CompositionContainer(aggrCatalog, CompositionOptions.DisableSilentRejection);
             return compositionContainer;
 
+            //Common.DI.Container = new CompositionContainer(aggrCatalog, CompositionOptions.DisableSilentRejection);
+            // Compose parts and test results
+            //Common.DI.Container.ComposeParts(this);
         }
+
+        ////[Import]
+        //public MainModel MyMainModel { get { return Common.DI.Container.GetExportedValue<MainModel>(); } }
+
+        //[Import(RequiredCreationPolicy = CreationPolicy.NonShared)]
+        //public MainModel MyMainModelNonShared { get; set; }
+
 
         public bool SavedFilesListGotDeserialized { get; private set; }
 
@@ -115,26 +124,43 @@ namespace GURU
             Current.Shutdown(e.Exception.HResult);
         }
 
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            //base.OnStartup(e);
+
+            //if (!Utils.IsInDesignTool)
+            //{
+            //    var asmCatalog = new AssemblyCatalog(typeof(App).Assembly);
+            //    var catalogs = new AggregateCatalog(asmCatalog);
+            //    var container = new CompositionContainer(catalogs);
+            //    CompositionHost.Initialize(container);
+            //    container.Compose(new CompositionBatch());
+
+            //    MainView.ShowDialog();
+            //}
+
+            //AssemblyCatalog guiCatalog = new AssemblyCatalog(System.Reflection.Assembly.GetExecutingAssembly());
+            //AssemblyCatalog modelcatalog = new AssemblyCatalog(typeof(MainModel).Assembly);
+            //AggregateCatalog allCatalogs = new AggregateCatalog(guiCatalog, modelcatalog);
+            //CompositionContainer container = new CompositionContainer(allCatalogs);
+            
+            //container.SatisfyImportsOnce(new ComposablePart());
+            ////container.Compose(new CompositionBatch());
+
+        }
+
+
         public bool TryDeserializeSavedFilesList()
         {
             try
             {
                 var splashScreenViewModel = this.Resources[nameof(SplashScreenViewModel)] as SplashScreenViewModel;
-
-                var serializer = new GuruSerializer();
-                if (GuruSerializer.SavedFilesFileInfo.Exists) {
-                    splashScreenViewModel.SavedFilesList = serializer.Deserialize<ExtendedObservableCollection<SerilzFileInfo>>
-                         (GuruSerializer.SavedFilesFileInfo.FullName);
-                }
-
-
-                if (splashScreenViewModel.SavedFilesList.Any() == false)
-                {
-                    var guruFile = GuruSerializer.DependenciesDir.GetFiles().FirstOrDefault(gf => gf.Name.EndsWith(".guru"));
-                    if (guruFile.Exists) {
-                        splashScreenViewModel.SavedFilesList.Add(new SerilzFileInfo(guruFile.FullName));
-                    }
-                }
+                var savedFilesPath = SplashScreenViewModel.SavedFilesFileInfo.ToString();
+                var savedFilesListContent = File.ReadAllText(savedFilesPath);
+                if (splashScreenViewModel != null)
+                    splashScreenViewModel.SavedFilesList =
+                        JsonConvert.DeserializeObject<ExtendedObservableCollection<SerilzFileInfo>>(savedFilesListContent,
+                            new JsonSerializerSettings() { NullValueHandling = NullValueHandling.Ignore });
 
             }
             catch (Exception e)
@@ -142,7 +168,6 @@ namespace GURU
                 Logger.Instance.LogEntries.Add(new LogEntry(e));
                 return false;
             }
-            
 
             return true;
         }
@@ -154,8 +179,11 @@ namespace GURU
                 var splashScreenViewModel = this.Resources[nameof(SplashScreenViewModel)] as SplashScreenViewModel;
                 if (splashScreenViewModel == null) throw new Exception("'SplashScreenViewModel' resource not found");
 
-                var serializer = new GuruSerializer();
-                serializer.Serialize(GuruSerializer.SavedFilesFileInfo.FullName, splashScreenViewModel.SavedFilesList);
+                var savedFilesPath = SplashScreenViewModel.SavedFilesFileInfo.ToString();
+                var serializingSettings = new JsonSerializerSettings() { PreserveReferencesHandling = PreserveReferencesHandling.Objects, TypeNameHandling = TypeNameHandling.All };
+                var srldObj = JsonConvert.SerializeObject(splashScreenViewModel.SavedFilesList, Formatting.Indented, settings: serializingSettings);
+                File.WriteAllText(savedFilesPath, srldObj);
+
             }
             catch (Exception e)
             {

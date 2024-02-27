@@ -90,7 +90,6 @@
     <Compile Include="Model\MainModelNonSharedTests.cs" />
     <Compile Include="Model\MainModelSharedTests.cs" />
     <Compile Include="Model\GlobalElementTests.cs" />
-    <Compile Include="Model\GuruSerializerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
